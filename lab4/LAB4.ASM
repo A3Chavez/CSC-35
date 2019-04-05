@@ -37,14 +37,13 @@ mov CX,4     ; Loop to collect 4 decimal digits
 mov ax,0
 top:
 mov ax,10    ; ax = 10
-mul X	     ; ax * X
-mov AH,1    ; Function to read a char from keyboard
+mul X	       ; ax * X
+mov X,ax
+mov AH,1     ; Function to read a char from keyboard
 int 21h      ; the char saved in AL
+sub al,30h
 add X,ax
-sub AL,30h
 loop top
-mov ah,0
-mov X,ax     ; X = final ax digit
 
 ; print nextLine
 mov ah, 9h
@@ -61,14 +60,14 @@ mov ax, 0    ; zero out ax
 mov CX,4     ; Loop to collect 4 decimal digits
 topY:
 mov ax,10    ; ax * 10
-mul Y	     ; ax * Y
-mov AH,1    ; Function to read a char from keyboard
+mul Y	       ; ax * Y
+mov Y,ax
+mov AH,1     ; Function to read a char from keyboard
 int 21h      ; the char saved in AL
-add Y,ax
-sub AL,30h
-loop topY
+sub al,30h
 mov ah,0
-mov Y,ax     ; Y = final ax digit
+add X,ax
+loop topY
 
 ; loc = Y * 160 + X * 2
 mov ax,160	    ; ax = 160
