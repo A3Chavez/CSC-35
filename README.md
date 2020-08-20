@@ -1,2 +1,8 @@
 # CSC-35
-My solutions to Dr. Ghansah's lab programs
+Programs for Dr. Ghansah
+
+Class: CSC 35, Spring 2019
+
+University: CSUS
+
+Author: Anthony Chavez
